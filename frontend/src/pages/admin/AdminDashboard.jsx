@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { adminService } from '../../services/adminService';
-import { Users, FileText, Activity, CheckCircle, TrendingUp } from 'lucide-react';
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
@@ -49,7 +48,7 @@ const AdminDashboard = () => {
               <p className="text-gray-500 text-sm">Total Users</p>
               <p className="text-3xl font-bold text-gray-900 mt-2">{stats?.totalUsers || 0}</p>
             </div>
-            <Users size={40} className="text-primary-500 opacity-50" />
+            <div className="text-4xl opacity-50">👥</div>
           </div>
         </div>
 
@@ -59,7 +58,7 @@ const AdminDashboard = () => {
               <p className="text-gray-500 text-sm">Total Quizzes</p>
               <p className="text-3xl font-bold text-gray-900 mt-2">{stats?.totalQuizzes || 0}</p>
             </div>
-            <FileText size={40} className="text-secondary-500 opacity-50" />
+            <div className="text-4xl opacity-50">📋</div>
           </div>
         </div>
 
@@ -69,7 +68,7 @@ const AdminDashboard = () => {
               <p className="text-gray-500 text-sm">Total Attempts</p>
               <p className="text-3xl font-bold text-gray-900 mt-2">{stats?.totalAttempts || 0}</p>
             </div>
-            <Activity size={40} className="text-accent-500 opacity-50" />
+            <div className="text-4xl opacity-50">📊</div>
           </div>
         </div>
 
@@ -79,7 +78,7 @@ const AdminDashboard = () => {
               <p className="text-gray-500 text-sm">Active Quizzes</p>
               <p className="text-3xl font-bold text-gray-900 mt-2">{stats?.activeQuizzes || 0}</p>
             </div>
-            <CheckCircle size={40} className="text-green-500 opacity-50" />
+            <div className="text-4xl opacity-50">✅</div>
           </div>
         </div>
       </div>
@@ -97,7 +96,7 @@ const AdminDashboard = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-32 bg-gray-200 rounded-full h-2">
                       <div 
-                        className="bg-primary-600 h-2 rounded-full"
+                        className="bg-blue-600 h-2 rounded-full"
                         style={{ width: `${(cat.count / stats.totalQuizzes) * 100}%` }}
                       ></div>
                     </div>
@@ -122,7 +121,7 @@ const AdminDashboard = () => {
                     <p className="text-sm text-gray-500">{user.email}</p>
                   </div>
                   <span className={`px-2 py-1 text-xs rounded-full ${
-                    user.role === 'admin' ? 'bg-primary-100 text-primary-700' : 'bg-gray-100 text-gray-700'
+                    user.role === 'admin' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'
                   }`}>
                     {user.role}
                   </span>
@@ -155,7 +154,7 @@ const AdminDashboard = () => {
                       <td className="px-4 py-2 text-sm text-gray-600">{attempt.quiz?.title || 'N/A'}</td>
                       <td className="px-4 py-2 text-sm text-gray-600">{attempt.score}/{attempt.totalQuestions}</td>
                       <td className="px-4 py-2 text-sm">
-                        <span className="font-semibold text-primary-600">{Math.round(attempt.percentage)}%</span>
+                        <span className="font-semibold text-blue-600">{Math.round(attempt.percentage)}%</span>
                       </td>
                       <td className="px-4 py-2 text-sm text-gray-500">
                         {new Date(attempt.completedAt).toLocaleDateString()}

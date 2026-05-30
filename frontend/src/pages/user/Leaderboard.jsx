@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { attemptService } from '../../services/attemptService';
 import { quizService } from '../../services/quizService';
-import { Trophy, Medal, Clock, CheckCircle } from 'lucide-react';
 
 const Leaderboard = () => {
   const { quizId } = useParams();
@@ -48,9 +47,9 @@ const Leaderboard = () => {
   };
 
   const getRankIcon = (rank) => {
-    if (rank === 1) return <Trophy className="text-yellow-500" size={24} />;
-    if (rank === 2) return <Medal className="text-gray-400" size={24} />;
-    if (rank === 3) return <Medal className="text-amber-600" size={24} />;
+    if (rank === 1) return <span className="text-2xl">🏆</span>;
+    if (rank === 2) return <span className="text-2xl">🥈</span>;
+    if (rank === 3) return <span className="text-2xl">🥉</span>;
     return <span className="text-gray-500 font-bold w-6 text-center">{rank}</span>;
   };
 
@@ -73,7 +72,7 @@ const Leaderboard = () => {
         </div>
 
         {quiz && (
-          <div className="bg-gradient-to-r from-primary-50 to-secondary-50 p-4 rounded-lg mb-6">
+          <div className="bg-gradient-to-r from-blue-50 to-green-50 p-4 rounded-lg mb-6">
             <h2 className="text-lg font-semibold text-gray-900">{quiz.title}</h2>
             <p className="text-gray-600 text-sm mt-1">Top performers on this quiz</p>
           </div>
@@ -121,13 +120,13 @@ const Leaderboard = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-2">
-                        <CheckCircle size={16} className="text-green-500" />
+                        <span className="text-green-500 text-lg">✓</span>
                         <span className="font-semibold text-gray-900">{Math.round(entry.percentage)}%</span>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-2 text-gray-600">
-                        <Clock size={16} />
+                        <span>⏱️</span>
                         <span>{Math.floor(entry.timeTaken / 60)}:{String(entry.timeTaken % 60).padStart(2, '0')}</span>
                       </div>
                     </td>

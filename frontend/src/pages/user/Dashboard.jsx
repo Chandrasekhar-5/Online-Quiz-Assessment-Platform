@@ -53,7 +53,7 @@ const Dashboard = () => {
         </div>
         <div className="card">
           <div className="text-gray-500 text-sm">Average Score</div>
-          <div className="text-3xl font-bold text-primary-600 mt-2">{Math.round(statistics?.averageScore || 0)}%</div>
+          <div className="text-3xl font-bold text-blue-600 mt-2">{Math.round(statistics?.averageScore || 0)}%</div>
         </div>
         <div className="card">
           <div className="text-gray-500 text-sm">Best Score</div>
@@ -61,7 +61,7 @@ const Dashboard = () => {
         </div>
         <div className="card">
           <div className="text-gray-500 text-sm">Quizzes Taken</div>
-          <div className="text-3xl font-bold text-secondary-600 mt-2">{statistics?.uniqueQuizzes || 0}</div>
+          <div className="text-3xl font-bold text-orange-600 mt-2">{statistics?.uniqueQuizzes || 0}</div>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ const Dashboard = () => {
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-primary-600">{Math.round(attempt.percentage)}%</div>
+                      <div className="text-lg font-bold text-blue-600">{Math.round(attempt.percentage)}%</div>
                       <div className="text-sm text-gray-500">{attempt.score}/{attempt.totalQuestions}</div>
                     </div>
                   </div>
@@ -94,6 +94,9 @@ const Dashboard = () => {
               ))}
             </div>
           )}
+          <Link to="/history" className="text-blue-600 text-sm mt-4 inline-block hover:underline">
+            View all attempts →
+          </Link>
         </div>
 
         <div className="card">
@@ -113,12 +116,17 @@ const Dashboard = () => {
                       <h3 className="font-medium text-gray-900">{quiz.title}</h3>
                       <p className="text-sm text-gray-500">{quiz.category} • {quiz.duration} mins</p>
                     </div>
-                    <button className="btn-primary text-sm px-4 py-2">Start Quiz</button>
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                      Start Quiz
+                    </button>
                   </div>
                 </Link>
               ))}
             </div>
           )}
+          <Link to="/quizzes" className="text-blue-600 text-sm mt-4 inline-block hover:underline">
+            Browse all quizzes →
+          </Link>
         </div>
       </div>
     </div>
