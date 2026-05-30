@@ -1,3 +1,4 @@
 node_modules
 .env
 src/scripts/createAdmin.js
+src/scripts/addQuizzes.js
