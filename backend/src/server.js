@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const apiRoutes = require('./routes');
 const connectDB = require('./config/db');
+const errorHandler = require('./middlewares/errorHandler');
 
 dotenv.config();
 
@@ -46,6 +47,8 @@ app.use((err, req, res, next) => {
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
