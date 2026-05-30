@@ -9,7 +9,7 @@ import QuizzesList from './pages/user/QuizzesList';
 import QuizTaking from './components/Quiz/QuizTaking';
 import Results from './pages/user/Results';
 import AttemptHistory from './pages/user/AttemptHistory';
-import Leaderboard from './pages/user/Leaderboard';
+import Leaderboard from './pages/user/Leaderboard.jsx';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import Layout from './components/Layout/Layout';
 
