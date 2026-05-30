@@ -3,10 +3,12 @@ const router = express.Router();
 const authRoutes = require('./authRoutes');
 const quizRoutes = require('./quizRoutes');
 const attemptRoutes = require('./attemptRoutes');
+const adminRoutes = require('./adminRoutes');
 
 router.use('/auth', authRoutes);
 router.use('/quizzes', quizRoutes);
 router.use('/attempts', attemptRoutes);
+router.use('/admin', adminRoutes);
 
 router.get('/health', (req, res) => {
   res.status(200).json({ 
@@ -23,7 +25,8 @@ router.get('/', (req, res) => {
     endpoints: {
       auth: '/api/auth',
       quizzes: '/api/quizzes',
-      attempts: '/api/attempts'
+      attempts: '/api/attempts',
+      admin: '/api/admin'
     }
   });
 });
