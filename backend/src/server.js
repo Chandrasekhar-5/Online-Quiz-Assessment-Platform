@@ -51,6 +51,15 @@ const PORT = process.env.PORT || 5000;
 
 connectDB()
 .then(() => {
+  console.log('MongoDB connected successfully');
+  
+  require('./models/User');
+  require('./models/Quiz');
+  require('./models/Attempt');
+  require('./models/RefreshToken');
+  
+  console.log('Database models loaded');
+
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`API URL: http://localhost:${PORT}/api`);
